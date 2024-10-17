@@ -54,7 +54,39 @@
         REFERENCES empleados(id_empleado)
 	);
  
+ --- EJERCICIO DIA2 ---
+ --- En este ejercicio vamos a corregir los errores que hemos encontrado en nuestras tablas.
+ --- marca: es una cadena de caracteres de longitud máxima de 45 caracteres, no nula.
+ ALTER TABLE zapatillas ADD COLUMN  marca VARCHAR(45) NOT NULL ;
+ --- talla: es un entero, no nulo.
+ ALTER TABLE zapatillas ADD COLUMN talla INT NOT NULL;
  
+/* Tabla Empleados
+salario: es un entero, no nulo. 
+Pero puede que el salario de nuestros empleados tenga decimales, por lo que le cambiaremos el tipo a decimal.*/
+ALTER TABLE empleados MODIFY COLUMN salario FLOAT NOT NULL;
+
+/*ELIMINAR LA COLUMNA PAIS DE LA TABLA CLIENTES*/
+ALTER TABLE clientes DROP COLUMN pais;
+
+/* CREAR LA COLUMNA TOTAL EN LA TABLA FACTURAS */
+ALTER TABLE facturas ADD COLUMN total FLOAT;
+
+/* INSERTAR DATOS EN NUESTRA BBDD.*/
+/*ZAPATILLAS*/
+INSERT INTO zapatillas (id_zapatilla,modelo,color,marca,talla)
+VALUES (1,'XQYUN','Negro','Nike',42),(2,'UOPMN','Rosas','Nike',39),(3,'OPNYT','Verdes','Adidas',35);
+
+INSERT INTO empleados (id_empleado,nombre,tienda,salario,fecha_incorporacion)
+VALUES (1,'Laura','Alcobendas',25987,'2010/09/03'),(2,'Maria','Sevilla',0,'2001/04/04'),(3,'Ester','Oviedo',30165.98,'2000/11/29');
+
+INSERT INTO clientes (id_cliente,nombre,numero_telefono,email,direccion,ciudad,c)
+VALUES (1,'Laura','Alcobendas',25987,'2010/09/03'),(2,'Maria','Sevilla',0,'2001/04/04'),(3,'Ester','Oviedo',30165.98,'2000/11/29');
+
+
+
+ 
+
  
  
  
